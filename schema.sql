@@ -4,6 +4,8 @@ DROP DATABASE IF EXISTS etracker_db;
 -- CREATE DATABASE
 CREATE DATABASE etracker_db;
 
+USE etracker_db;
+
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT NOT NULL,
     name VARCHAR(30) NOT NULL,
