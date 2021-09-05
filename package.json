@@ -1,0 +1,20 @@
+{
+  "name": "12_EmployeeTracker",
+  "version": "1.0.0",
+  "description": "## User STtory: As a business owner",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andadam24/12_EmployeeTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andadam24/12_EmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/andadam24/12_EmployeeTracker#readme"
+}
