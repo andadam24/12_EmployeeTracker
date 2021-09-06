@@ -65,7 +65,7 @@ function startApp() {
         })
 };
 
-const runEmployees = () => {
+const viewEmployees = () => {
     const query = 
         `SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, 
         CONCAT(manager.first_name, " ", manager.last_name) AS manager
@@ -81,7 +81,7 @@ const runEmployees = () => {
     })
 }
 
-const runRoles = () => {
+const viewRoles = () => {
     const query = 
         `SELECT role.id, role.title AS role, department.name AS department, role.salary
         FROM role
@@ -94,7 +94,7 @@ const runRoles = () => {
     });
 };
 
-const getDept = () => {
+const viewDeptartment = () => {
     const query = 
         `SELECT id, name AS department FROM department;`;
 
@@ -104,3 +104,94 @@ const getDept = () => {
         startApp();
     });
 };
+
+const addEmployee = () => {
+    inquirer
+      .prompt([
+    {
+        name: 'firstName',
+        type: 'input',
+        message: 'Employee first name?'
+    },
+    {
+        name: 'lastName',
+        type: 'input',
+        message: 'Employee last name??'
+    },
+    {
+      name: 'roleID',
+      type: 'input',
+      message: 'Employee ID number?'
+    },
+    {
+      name: 'managerID',
+      type: 'input',
+      message: 'Employees manager ID number?'
+    }
+    ])
+      .then((answer) => {
+        connection.query(
+          'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', 
+          [answer.firstName, answer.lastName, answer.roleID, answer.managerID],
+          (err, res) => {
+            if (err) throw err;
+            console.log(`Employee ${answer.firstName} ${answer.lastName} was created successfully!`);
+            console.table(res)         
+            startApp();
+        }) 
+    });
+};
+
+
+    const addRole = () => {
+        inquirer
+          .prompt([
+        {
+            name: 'roleName',
+            type: 'input',
+            message: 'Role name?'
+        },
+        {
+            name: 'salary',
+            type: 'input',
+            message: 'Salary for role?'
+        },
+        {
+          name: 'deptID',
+          type: 'input',
+          message: 'Role department ID?'
+        }
+      ])
+        .then((answer) => {
+            connection.query(
+              'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)', 
+              [answer.roleName, answer.salary, answer.deptID],
+              (err, res) => {
+                if (err) throw err;
+                console.table(res)         
+                startApp();
+              }) 
+            });
+        };
+
+        const addDepartment = () => {
+            inquirer
+              .prompt([
+            {
+                name: 'deptName',
+                type: 'input',
+                message: 'Department Name?'
+            }
+          ])
+            .then((answer) => {
+                connection.query(
+                  'INSERT INTO department (name) VALUES (?)', 
+                  [answer.deptName],
+                  (err, res) => {
+                    if (err) throw err;
+                    console.table(res)         
+                    startApp();
+                  }) 
+                });
+            };
+
