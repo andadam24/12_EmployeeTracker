@@ -9,5 +9,7 @@ I want to be able to view and manage the departments, roles, and employees in my
 So that I can organize and plan my business
 
 ## Video
+https://drive.google.com/file/d/1uAuJFxRDNe_F8UdWx6uvpk20ZDyCI-LK/view
 
-## Links
+## Link
+https://github.com/andadam24/12_EmployeeTracker
