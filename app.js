@@ -55,10 +55,8 @@ function startApp() {
                         updateRole();
                         break;
                     case 'Exit': 
-                        exitApp();
-                        break;
-                    default:
-                        break;
+                        connection.end();
+
                 }
         })
 };
@@ -236,4 +234,3 @@ const addEmployee = () => {
                     });
                 };
 
-module.exports = app;
