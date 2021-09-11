@@ -1,6 +1,5 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
-// for using environment variables
 require('dotenv').config();
 
 connection = mysql.createConnection({
@@ -236,3 +235,5 @@ const addEmployee = () => {
                       }) 
                     });
                 };
+
+module.exports = app;
