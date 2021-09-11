@@ -1,5 +1,5 @@
 # 12_EmployeeTracker
-
+The Employee Tracker app is an app that utilizes node prompts along with utilizing the created MYSQL databases. This app is an easy to digest application for organizing employee names, departments, roles, salary, managers, and titles. Check out the video below!
 
 ## User STtory:
 As a business owner
