@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/andadam24/12_EmployeeTracker/issues"
   },
-  "homepage": "https://github.com/andadam24/12_EmployeeTracker#readme"
+  "homepage": "https://github.com/andadam24/12_EmployeeTracker#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "inquirer": "^8.1.2",
+    "mysql": "^2.18.1"
+  }
 }

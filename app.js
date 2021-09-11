@@ -1,6 +1,5 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
-const cTable = require('console.table');
 // for using environment variables
 require('dotenv').config();
 
@@ -94,7 +93,7 @@ const viewRoles = () => {
     });
 };
 
-const viewDeptartment = () => {
+const viewDepartments = () => {
     const query = 
         `SELECT id, name AS department FROM department;`;
 
@@ -195,3 +194,45 @@ const addEmployee = () => {
                 });
             };
 
+            const updateRole = () => {
+                inquirer
+                  .prompt([
+                {
+                    name: 'roleID',
+                    type: 'input',
+                    message: 'What is the roleID to update?'
+                },
+                {
+                    name: 'roleTitle',
+                    type: 'input',
+                    message: 'What is the new title?'
+                },
+                {
+                    name: 'roleSalary',
+                    type: 'input',
+                    message: 'What is new salary?'
+                },
+                {
+                    name: 'roleDid',
+                    type: 'input',
+                    message: 'What is the new department ID?'
+                },
+              ])
+                .then((answer) => {
+                    connection.query(
+                      'UPDATE role SET ? WHERE ?', 
+                      [
+                          {
+                              title: answer.roleName
+                          },
+                          {
+                              id: answer.roleID
+                          }
+                      ],
+                      (err, res) => {
+                        if (err) throw err;
+                        console.table(res)         
+                        startApp();
+                      }) 
+                    });
+                };
